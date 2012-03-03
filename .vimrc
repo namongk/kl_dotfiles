@@ -90,6 +90,7 @@ set showbreak=…
 set encoding=utf-8 fileencodings=.
 set showfulltag
 set completeopt=longest,menuone,preview
+" set isk-=_ " Don't consider underscores to be word characters
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FOLDS
@@ -120,9 +121,10 @@ set showtabline=1
 syntax on
 set t_Co=256
 set background=dark
-colorscheme solarized
-hi NonText ctermfg=7 guifg=gray
-hi SpecialKey ctermfg=8
+"colorscheme hemisu
+colorscheme badwolf
+hi NonText ctermfg=59 guifg=gray
+hi SpecialKey ctermfg=59
 
 " Use the below highlight group when displaying bad whitespace is desired.
 highlight ExtraWhitespace ctermbg=red guibg=red
@@ -318,6 +320,8 @@ if has("autocmd")
         autocmd BufRead *.mkd  setlocal ai formatoptions=tcroqn2 comments=n:>
     augroup END
 
+    autocmd BufRead,BufNewFile,BufEnter *.rst set ft=rest
+
     " JSON syntax
     au! BufRead,BufNewFile *.json setlocal filetype=json
 
@@ -470,6 +474,9 @@ inoremap <A-j> <Esc>:m+<CR>==gi
 inoremap <A-k> <Esc>:m-2<CR>==gi
 vnoremap <A-j> :m'>+<CR>gv=gv
 vnoremap <A-k> :m-2<CR>gv=gv
+" reselect block after outdent/indent
+vnoremap < <gv
+vnoremap > >gv
 
 " Mac OS X/Safari keybindings for tabs
 nmap <D-{> :tabprevious<CR>
@@ -581,9 +588,22 @@ nnoremap <leader>a :Ack
 " Use - to open Explore
 nnoremap - :Explore<CR>
 
+"if exists("+relativenumber")
+    "autocmd InsertEnter * setl nu
+    "autocmd InsertLeave * setl rnu
+"endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" XSnippet
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>cp :call PostToXsnippet()<CR>
+
+" Smart Buffer Delete
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nnoremap <silent> <leader>bd :Sbd<CR>
 
 " Buffergator
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

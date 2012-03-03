@@ -30,7 +30,8 @@ export PATH="/usr/local/bin:/usr/local/sbin:/Users/kennethlove/.oh-my-zsh:$PATH"
 export TERM="xterm-256color"
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
-eval `gdircolors /Users/kennethlove/kl_dotfiles/dircolors.256dark`
+# eval `gdircolors /Users/kennethlove/kl_dotfiles/dircolors.256dark`
+export CLICOLOR=1
 
 alias ls="ls -aFGhkLlpsTP"
 alias l="ls"
@@ -71,3 +72,4 @@ any() {
 
 source ~/.cider.profile
 [[ -s "/Users/kennethlove/Developer/.rvm/scripts/rvm" ]] && . "/Users/kennethlove/Developer/.rvm/scripts/rvm"
+[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

@@ -79,3 +79,9 @@
 [submodule ".vim/bundle/coffeescript"]
 	path = .vim/bundle/coffeescript
 	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule ".vim/bundle/sbd"]
+	path = .vim/bundle/sbd
+	url = git://github.com/orftz/sbd.vim.git
+[submodule ".vim/bundle/vim-xsnippet"]
+	path = .vim/bundle/vim-xsnippet
+	url = https://github.com/bloodeclipse/vim-xsnippet.git
