@@ -18,4 +18,4 @@ PROMPT='%{$reset_color%}%{$fg[black]$bg[white]%} %c %{$fg[white]$bg[blue]%}⮀\
 
 PROMPT2='%{$fg[black]$bg[white]%} %{$reset_color%}%{$fg[white]%}⮀%{$reset_color%} '
 
-RPS1='%{$reset_color%}%{$fg[black]%}⮂%{$fg[white]$bg[black]%} %t %{$reset_color%}'
+RPS1='%{$reset_color%}%{$fg[white]%}⮂%{$fg[black]$bg_bold[white]%} %t %{$reset_color%}'
