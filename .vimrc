@@ -474,9 +474,6 @@ inoremap <A-j> <Esc>:m+<CR>==gi
 inoremap <A-k> <Esc>:m-2<CR>==gi
 vnoremap <A-j> :m'>+<CR>gv=gv
 vnoremap <A-k> :m-2<CR>gv=gv
-" reselect block after outdent/indent
-vnoremap < <gv
-vnoremap > >gv
 
 " Mac OS X/Safari keybindings for tabs
 nmap <D-{> :tabprevious<CR>
@@ -974,17 +971,25 @@ endfunc
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " Add the virtualenv's site-packages to vim path
-py << EOF
-import os.path
-import sys
-import vim
-if os.environ['VIRTUAL_ENV']:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    sys.path.insert(0, project_base_dir)
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
+"py << EOF
+"import os.path
+"import sys
+"import vim
+"if os.environ['VIRTUAL_ENV']:
+"    project_base_dir = os.environ['VIRTUAL_ENV']
+"    sys.path.insert(0, project_base_dir)
+"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"    execfile(activate_this, dict(__file__=activate_this))
+"EOF
 
 nmap <F3> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
 
+nnoremap U :syntax sync fromstart<CR>:redraw!<CR>
+
+" Yank text to the OS X clipboard
+noremap <leader>y "*y
+noremap <leader>yy "*Y
+
+" Preserve indentation while pasting text from the OS X clipboard
+noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
