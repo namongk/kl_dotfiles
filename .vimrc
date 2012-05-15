@@ -122,7 +122,7 @@ syntax on
 set t_Co=256
 set background=dark
 "colorscheme hemisu
-colorscheme badwolf
+colorscheme smyck
 hi NonText ctermfg=59 guifg=gray
 hi SpecialKey ctermfg=59
 

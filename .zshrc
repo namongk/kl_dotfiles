@@ -21,7 +21,7 @@ ZSH_THEME="../custom/themes/kennethlove"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew django github osx pip redis-cli ssh-agent vagrant vi-mode lol mercurial python zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(git brew django osx pip redis-cli vi-mode mercurial python zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -47,7 +47,8 @@ alias pmrp="python manage.py runserver_plus"
 alias pmsp="python manage.py shell_plus"
 alias pmcs="python manage.py collectstatic --noinput"
 
-alias start_jenkins="java -jar /usr/local/Cellar/jenkins/1.443/lib/jenkins.war --httpPort 8888"
+# alias `hub` as `git`
+eval "$(hub alias -s)"
 
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -70,6 +71,4 @@ any() {
     fi
 }
 
-source ~/.cider.profile
-[[ -s "/Users/kennethlove/Developer/.rvm/scripts/rvm" ]] && . "/Users/kennethlove/Developer/.rvm/scripts/rvm"
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
