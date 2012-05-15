@@ -147,9 +147,6 @@ let g:SimpleJsIndenter_BriefMode = 1
 set laststatus=2
 
 set statusline=%-.50F " Full path to file, 50 characters max
-set statusline+=\ %{fugitive#statusline()} " Fugitive status line
-set statusline+=\ %{g:HgStatusForFile()} " Thermometer status line
-set statusline+=\ %{VirtualEnvStatusline()} " Virtualenv status line
 set statusline+=\ (%n) " buffer number
 set statusline+=\ %([%M%R%H%W]\ %) " Modified, Read-only, Help, and Preview flags
 set statusline+=\ %y " Filetype
@@ -582,21 +579,10 @@ inoremap jj <ESC>
 " Launch Ack quicker
 nnoremap <leader>a :Ack
 
-" Use - to open Explore
-nnoremap - :Explore<CR>
-
-"if exists("+relativenumber")
-    "autocmd InsertEnter * setl nu
-    "autocmd InsertLeave * setl rnu
-"endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" XSnippet
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>cp :call PostToXsnippet()<CR>
 
 " Smart Buffer Delete
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -621,10 +607,6 @@ let g:ctrlp_dotfiles = 0
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Powerline_symbols = "fancy"
 
-" SIMPLENOTE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-source ~/.simplenoterc
-
 " DJANGO NOSE & PYTEST
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
@@ -642,45 +624,9 @@ nmap <silent><Leader>te <Esc>:Pytest error<CR>
 map <leader>j :RopeGotoDefinition<CR>
 map <leader>r :RopeRename<CR>
 
-" TASKLIST
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <leader>td <Plug>TaskList
-
-" EASYMOTION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:EasyMotion_do_shade = 1
-
-" CHAPA
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:chapa_default_mappings=1
-
-" VIMWIKI
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>tt <Plug>VimwikiToggleListItem
-let g:vimwiki_list= [{'path': '~/Dropbox/PlainText/vimwiki/', 'path_html': '~/Dropbox/Public/vimwiki/', 'ext': '.txt'}]
-
-
-" ZENCODING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:user_zen_expandabbr_key = '<c-e>'
-
-" SEQUENCE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-vmap <m-a> <plug>SequenceV_Increment
-vmap <m-x> <plug>SequenceV_Decrement
-nmap <m-a> <plug>SequenceN_Increment
-nmap <m-x> <plug>SequenceN_Decrement
-vmap <c-a> <plug>SequenceAdd
-vmap <c-x> <plug>SequenceSubtract
-
 " GUNDO
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F4> :GundoToggle<CR>
-
-" SUPERTAB
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:SuperTabDefaultCompletionType = 'context'
-let g:SuperTabMappingTabLiteral = '<a-tab>'
 
 " PYDICTION
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -726,14 +672,6 @@ let Tlist_Show_One_File = 1
 let g:tlist_javascript_settings = 'js;javascript;s:string;a:array;o:object;f:function'
 
 "nnoremap <silent> <Leader>T :TlistToggle<CR>
-
-" TAGBAR
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:tagbar_usearrows = 1
-let g:tagbar_ctags_bin = "/usr/local/bin/ctags"
-let g:tagbar_autoshowtag = 1
-
-nnoremap <leader>T :TagbarOpenAutoClose<CR>
 
 " RAGTAG
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -834,13 +772,6 @@ function! s:ToggleScratch()
 endfunction
 nmap <leader><tab> :call <SID>ToggleScratch()<CR>
 
-" BUFEXPLORER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:bufExplorerSortBy = 'mru'
-let g:bufExplorerSplitBelow = 1
-let g:bufExplorerSplitRight = 1
-let g:bufExplorerDefaultHelp = 0
-let g:bufExplorerShowRelativePath = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS
