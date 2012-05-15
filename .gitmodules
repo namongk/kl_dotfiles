@@ -22,9 +22,6 @@
 [submodule ".vim/bundle/jshint"]
 	path = .vim/bundle/jshint
 	url = https://github.com/wookiehangover/jshint.vim.git
-[submodule ".vim/bundle/extradite"]
-	path = .vim/bundle/extradite
-	url = https://github.com/int3/vim-extradite.git
 [submodule ".vim/bundle/taglist-plus"]
 	path = .vim/bundle/taglist-plus
 	url = https://github.com/int3/vim-taglist-plus.git
