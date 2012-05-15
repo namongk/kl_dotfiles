@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/taglist-plus"]
 	path = .vim/bundle/taglist-plus
 	url = https://github.com/int3/vim-taglist-plus.git
-[submodule ".vim/bundle/thermometer"]
-	path = .vim/bundle/thermometer
-	url = https://github.com/dgsuarez/thermometer.git
 [submodule ".vim/bundle/pydoc"]
 	path = .vim/bundle/pydoc
 	url = https://github.com/fs111/pydoc.vim.git
