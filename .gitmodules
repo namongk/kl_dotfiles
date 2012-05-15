@@ -16,9 +16,6 @@
 [submodule ".vim/bundle/argumentrewrap"]
 	path = .vim/bundle/argumentrewrap
 	url = https://github.com/jakobwesthoff/argumentrewrap.git
-[submodule ".vim/bundle/searchfold"]
-	path = .vim/bundle/searchfold
-	url = https://github.com/vim-scripts/searchfold.vim.git
 [submodule ".vim/bundle/tabular"]
 	path = .vim/bundle/tabular
 	url = https://github.com/godlygeek/tabular.git
