@@ -3,5 +3,6 @@
 
 PS1="$_OLD_VIRTUAL_PS1"
 _OLD_RPROMPT="$RPROMPT"
-# RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%}"
-RPROMPT='%{$reset_color%}%{$fg[white]%}⮂%{$fg[black]$bg[white]%} `basename "$VIRTUAL_ENV"` %{$fg[black]%}⮂%{$fg[white]$bg[black]%} %t %{$reset_color%}'
+RPROMPT="%{${fg_bold[white]}%}(env: %{${fg[green]}%}`basename \"$VIRTUAL_ENV\"`%{${fg_bold[white]}%})%{${reset_color}%}"
+# RPROMPT='%{$reset_color%}%{$fg[white]%}⮂%{$fg[black]$bg[white]%} `basename "$VIRTUAL_ENV"` 
+# %{$fg[black]%}⮂%{$fg[white]$bg[black]%} %t %{$reset_color%}'

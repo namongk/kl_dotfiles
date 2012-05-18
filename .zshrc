@@ -5,13 +5,15 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="../custom/themes/kennethlove"
+# ZSH_THEME="../custom/themes/kennethlove"
+# ZSH_THEME="kolo"
+ZSH_THEME="minimal"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
 # Comment this out to disable weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment following line if you want to disable colors in ls
 # DISABLE_LS_COLORS="true"
@@ -26,7 +28,7 @@ plugins=(git brew django osx pip redis-cli vi-mode mercurial python zsh-syntax-h
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH="/usr/local/bin:/usr/local/sbin:/Users/kennethlove/.oh-my-zsh:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/Users/kennethlove/.oh-my-zsh:/usr/local/Cellar/ruby/1.9.3-p125/bin:$PATH"
 export TERM="xterm-256color"
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
 
@@ -50,15 +52,13 @@ alias pmcs="python manage.py collectstatic --noinput"
 # alias `hub` as `git`
 eval "$(hub alias -s)"
 
+export EDITOR="vim"
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 export ARCH_FLAGS="-arch i386 -arch x86_64"
-
-setopt auto_cd
-cdpath=(/Sites)
 
 any() {
     emulate -L zsh
