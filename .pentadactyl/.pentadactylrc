@@ -10,7 +10,7 @@ set passkeys+="http://www\.google\.com/reader/*":jkeA
 set passkeys+="http://www\.tumblr\.com/*":jk
 set passkeys+="http://www\.boston\.com/bigpicture/*":jk
 set passkeys+="https://www\.google\.com/mail/*":jkcr?
-set passkeys+="https://github\.com/*":wts?jkcoyxIUelu/hHLKJ
+set passkeys+="https://github\.com/*":wts?jkcoxIUelu/hHLKJ
 
 set fbwhitelist=
 set fbwhitelist+="http://www\.thisoldhouse\.com/*"
