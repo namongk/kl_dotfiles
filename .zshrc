@@ -23,7 +23,7 @@ DISABLE_AUTO_UPDATE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew django osx pip redis-cli vi-mode mercurial python zsh-syntax-highlighting zsh-history-substring-search)
+plugins=(git brew python vi-mode zsh-syntax-highlighting zsh-history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
 
