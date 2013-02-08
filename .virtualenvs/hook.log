@@ -1,0 +1,72 @@
+2012-06-26 10:53:38,511 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 10:53:38,519 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/initialize
+2012-06-26 10:53:38,519 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/premkvirtualenv
+2012-06-26 10:53:38,519 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/postmkvirtualenv
+2012-06-26 10:53:38,519 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/prermvirtualenv
+2012-06-26 10:53:38,520 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/postrmvirtualenv
+2012-06-26 10:53:38,520 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/predeactivate
+2012-06-26 10:53:38,520 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/preactivate
+2012-06-26 10:53:38,521 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/get_env_details
+2012-06-26 10:53:38,521 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/premkproject
+2012-06-26 10:53:38,521 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/postmkproject
+2012-06-26 10:53:38,522 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/prermproject
+2012-06-26 10:53:38,522 INFO virtualenvwrapper.user_scripts creating /Users/kennethlove/.virtualenvs/postrmproject
+2012-06-26 10:53:38,522 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.CWwfbh8b
+2012-06-26 10:54:31,466 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 10:54:31,474 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.QW8bT63D
+2012-06-26 10:58:43,137 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 10:58:43,145 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.8bVL2C17
+2012-06-26 11:00:36,795 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:00:36,803 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.j1lfsWo3
+2012-06-26 11:02:33,977 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:02:33,986 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.ohTe6Ewy
+2012-06-26 11:06:20,010 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:06:20,019 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.W4maTnLr
+2012-06-26 11:20:08,725 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:20:08,738 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.nnDBzcSF
+2012-06-26 11:43:15,851 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:43:15,872 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.Z2abFRlW
+2012-06-26 11:44:12,538 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:44:12,546 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.sb9xvhFU
+2012-06-26 11:49:57,715 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:49:57,728 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.K1VYpFe6
+2012-06-26 11:52:29,637 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 11:52:29,651 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.naQXuTib
+2012-06-26 12:07:58,826 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:07:58,865 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.Me5Z93uO
+2012-06-26 12:31:37,133 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:31:37,169 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.6YHvsKRp
+2012-06-26 12:34:00,449 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:34:00,458 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.XL7ImYdY
+2012-06-26 12:34:27,564 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:34:27,580 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.dQEG2jOc
+2012-06-26 12:44:20,301 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:44:20,320 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.2FDKvdWy
+2012-06-26 12:52:04,876 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,879 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,879 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,879 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,885 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,891 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,893 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 12:52:04,898 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.PpOBsGvl
+2012-06-26 12:52:04,898 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.GkYBd5dr
+2012-06-26 12:52:04,900 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.NGnV1kaE
+2012-06-26 12:52:04,902 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.4WWplZyx
+2012-06-26 12:52:04,904 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.dTMPEuvD
+2012-06-26 12:52:04,922 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.8bfD1SRC
+2012-06-26 12:52:04,929 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.t9vpgzoX
+2012-06-26 13:32:48,404 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,403 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,404 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,403 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,401 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,404 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,404 DEBUG virtualenvwrapper.hook_loader Running initialize hooks
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.sMlsiAez
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.v9Ol19fv
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.YkytCMUd
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.Q7B27Cgd
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.OsznmR4L
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.DohNkgJv
+2012-06-26 13:32:48,430 DEBUG virtualenvwrapper.hook_loader Saving sourcable initialize hooks to /var/folders/4_/cj97p27977747nvbvwkfq6z00000gn/T/virtualenvwrapper-initialize-hook-XXXXXXXXXX.M9nlnjti
