@@ -61,3 +61,6 @@
 [submodule ".vim/bundle/zencoding-vim"]
 	path = .vim/bundle/zencoding-vim
 	url = https://github.com/mattn/zencoding-vim.git
+[submodule ".vim/bundle/vim-textobj-underscore"]
+	path = .vim/bundle/vim-textobj-underscore
+	url = https://github.com/lucapette/vim-textobj-underscore.git
