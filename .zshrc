@@ -1,41 +1,21 @@
-# Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+setopt appendhistory autocd beep extendedglob nomatch notify
 
-# Set name of the theme to load.
-# Look in ~/.oh-my-zsh/themes/
-# Optionally, if you set this to "random", it'll load a random theme each
-# time that oh-my-zsh is loaded.
-# ZSH_THEME="../custom/themes/kennethlove"
-# ZSH_THEME="kolo"
-ZSH_THEME="minimal"
+if [ -d $HOME/.oh-my-zsh ] ; then
+    ZSH=$HOME/.oh-my-zsh
+    ZSH_THEME="minimal"
+    DISABLE_AUTO_UPDATE="true"
+    DISABLE_AUTO_TITLE="true"
+    plugins=(git brew python vi-mode zsh-syntax-highlighting zsh-history-substring-search)
+    source $ZSH/oh-my-zsh.sh
 
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
+    [ -s $HOME/.prompt ] && source $HOME/.prompt
+fi
 
-# Comment this out to disable weekly auto-update checks
-DISABLE_AUTO_UPDATE="true"
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew python vi-mode zsh-syntax-highlighting zsh-history-substring-search)
-
-source $ZSH/oh-my-zsh.sh
-
-# Customize to your needs...
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/local/share/node_modules/.bin:/Users/kennethlove/.oh-my-zsh:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/local/Cellar/ruby/1.9.3-p125/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/local/share/node_modules/.bin:/Users/kennethlove/.oh-my-zsh:/usr/local/opt/ruby/bin:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/local/Cellar/ruby/1.9.3-p125/bin:$PATH"
 export TERM="xterm-256color"
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
-# Stop Python from generating .pyc files
-# export PYTHONDONTWRITEBYTECODE=1
-
-# eval `gdircolors /Users/kennethlove/kl_dotfiles/dircolors.256dark`
 export CLICOLOR=1
 
 alias ls="ls -aFGhkLlpsTP"
@@ -76,4 +56,5 @@ any() {
     fi
 }
 
+source /usr/local/opt/autoenv/activate.sh
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

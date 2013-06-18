@@ -1,1 +1,0 @@
-/Users/kennethlove/Code/vim-autumn/autumn.vim

@@ -1,5 +1,5 @@
 #!/bin/bash
 # This hook is run after every virtualenv is deactivated.
 
-RPROMPT=""
-#RPROMPT='%{$reset_color%}%{$fg[white]%}⮂%{$fg[black]$bg_bold[white]%} %t %{$reset_color%}'
+PROMPT="$_OLD_PROMPT"
+

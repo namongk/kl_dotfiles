@@ -1,11 +1,44 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PATHOGEN
+" COMMON
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-filetype off
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-
 set nocompatible
+filetype off
+" call pathogen#runtime_append_all_bundles()
+" call pathogen#helptags()
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BUNDLES
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+Bundle 'gmarik/vundle'
+Bundle 'scrooloose/syntastic'
+Bundle 'tpope/vim-surround'
+Bundle 'mjbrownie/django-template-textobjects'
+Bundle 'mjbrownie/html-textobjects'
+Bundle 'scrooloose/nerdtree'
+Bundle 'tpope/vim-repeat'
+Bundle 'lucapette/vim-textobj-underscore'
+Bundle 'jakobwesthoff/argumentrewrap'
+Bundle 'ack.vim'
+Bundle 'Buffergator'
+Bundle 'delete-surround-html'
+Bundle 'Soares/butane.vim'
+Bundle 'ctrlp.vim'
+Bundle 'commentary.vim'
+Bundle 'pythoncomplete'
+Bundle 'Gundo'
+Bundle 'vim-flake8'
+Bundle 'ZenCoding.vim'
+Bundle 'vim-coffee-script'
+Bundle 'less.vim'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'xptemplate'
+Bundle 'terryma/vim-multiple-cursors'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
+Bundle 'davidhalter/jedi-vim'
+
 set cpoptions=aABceFsmq
 "set autochdir
 set nostartofline " don't jump to the first character when paging
@@ -90,7 +123,7 @@ set showbreak=…
 set encoding=utf-8 fileencodings=.
 set showfulltag
 set completeopt=longest,menuone,preview
-" set isk-=_ " Don't consider underscores to be word characters
+set isk-=_ " Don't consider underscores to be word characters
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FOLDS
@@ -111,6 +144,7 @@ set bufhidden=hide
 set hidden " you can change buffers without saving
 set switchbuf=usetab
 set splitright
+set splitbelow
 set scrolloff=2
 set sidescrolloff=2
 set showtabline=1
@@ -120,9 +154,8 @@ set showtabline=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set t_Co=256
-set background=dark
-"colorscheme hemisu
-colorscheme smyck
+set background=light
+colorscheme hemisu
 hi NonText ctermfg=59 guifg=gray
 hi SpecialKey ctermfg=59
 
@@ -291,13 +324,9 @@ if has("autocmd")
     autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 
     " Customisations based on house-style (arbitrary)
-    autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType xhtml setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType htmldjango.html setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType htmldjango setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType css setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
-    autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType html,xhtml,xml,htmldjango.html,html,css,javascript,python setlocal ts=4 sts=4 sw=4 expandtab
+
+    autocmd BufWritePost *.py call Flake8()
 
     " Treat .rss files as XML
     autocmd BufNewFile,BufRead *.rss setlocal filetype=xml
@@ -307,6 +336,9 @@ if has("autocmd")
 
     " Autodetect Actionscript files
     au BufNewFile,BufRead *.as setlocal filetype=actionscript
+
+    " Autodetect LESS files as CSS
+    au BufNewFile,BufRead *.less setlocal filetype=css
 
     " Automatically strip extraneous whitespace when saving Python or
     " Javascript files.
@@ -331,7 +363,6 @@ if has("autocmd")
     " au BufRead,BufNewFile *.py,*.pyw match ExtraWhitespace /\s\+$/
     au BufRead,BufNewFile *.py,*.pyw let python_space_errors = 1
     au BufRead,BufNewfile *.py,*.pyw call s:HighlightLongLines(79)
-    au BufNewFile,BufRead *.py compiler nose
 
     " only UNIX line endings.
     au BufNewFile *.* set fileformat=unix
@@ -354,12 +385,11 @@ if has("autocmd")
         autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
     endif
 
-    " CSS, XML, and HTML file shoulds be folded based on indent
-    au BufNewFile,BufRead *css,*xml,*htm*,*as setlocal foldmethod=indent
+    " Python, CSS, XML, and HTML file shoulds be folded based on indent
+    au BufNewFile,BufRead *py,*css,*xml,*htm*,*as setlocal foldmethod=indent
 
     " CSS and Sass files should see - as part of a keyword
     au! BufRead,BufNewFile *.sass,*.scss setlocal filetype=sass
-    au! BufRead,BufNewFile *.less setlocal filetype=less
 
     " PHP
     augroup php
@@ -392,6 +422,10 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " KEY MAPPINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Turn off print, I never use it.
+map <D-p> <Nop>
+map! <D-p> <Nop>
+
 " Shortcut for square brackets "
 onoremap id i[
 onoremap ad a[
@@ -461,8 +495,8 @@ map <Leader>c :botright cw 10<CR>
 " Don't move around in Insert mode
 inoremap <Left> <Esc><Right><Left>
 inoremap <Right> <Esc><Right><Right>
-inoremap <Up> <Esc><Right><Up>
-inoremap <Down> <Esc><Right><Down>
+inoremap <Up> <Esc><Up>
+inoremap <Down> <Esc><Down>
 
 " Easily move chunks of text
 nnoremap <A-j> :m+<CR>==
@@ -584,9 +618,19 @@ nnoremap <leader>a :Ack
 " PLUGIN SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Smart Buffer Delete
+" YANKRING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-nnoremap <silent> <leader>bd :Sbd<CR>
+let g:ycm_key_detailed_diagnostics = ''
+let g:yankring_replace_n_pkey = '<m-p>'
+
+" Butane
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+noremap <leader>bd :Bclose<CR>      " Close the buffer.
+noremap <leader>bl :ls<CR>          " List buffers.
+noremap <leader>bn :bn<CR>          " Next buffer.
+noremap <leader>bp :bp<CR>          " Previous buffer.
+noremap <leader>bt :b#<CR>          " Toggle to most recently used buffer.
+noremap <leader>bx :Bclose!<CR>     " Close the buffer & discard changes.
 
 " Buffergator
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -595,34 +639,19 @@ let g:buffergator_split_size=10
 
 " CtrlP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_map = "<c-a>"
+let g:ctrlp_map = "<c-p>"
+let g:ctrlp_cmd = "CtrlPMixed"
 let g:ctrlp_custom_ignore = {
 \ 'dir':  '\.git$\|\.hg$\|\.svn$',
 \ 'file': '\.pyc$',
 \ }
-let g:ctrlp_working_path_mode = 2
-let g:ctrlp_dotfiles = 0
+let g:ctrlp_working_path_mode = "ra"
+let g:ctrlp_open_new_file = "r"
+let g:ctrlp_open_multiple_files = "i"
 
 " POWERLINE
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:Powerline_symbols = "fancy"
-
-" DJANGO NOSE & PYTEST
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>dt :set makeprg=python\ manage.py\ test\|:call MakeGreen()<CR>
-" Execute the tests
-nmap <silent><Leader>tf <Esc>:Pytest file<CR>
-nmap <silent><Leader>tc <Esc>:Pytest class<CR>
-nmap <silent><Leader>tm <Esc>:Pytest method<CR>
-" cycle through test errors
-nmap <silent><Leader>tn <Esc>:Pytest next<CR>
-nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
-nmap <silent><Leader>te <Esc>:Pytest error<CR>
-
-" ROPEVIM
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <leader>j :RopeGotoDefinition<CR>
-map <leader>r :RopeRename<CR>
 
 " GUNDO
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -694,6 +723,7 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeSortOrder = ['\/$', '*']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeMinimalUI = 1
+" let g:NERDTreeDirArrows = 1
 
 " YANKRING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -739,6 +769,11 @@ let g:yankring_clipboard_monitor = 1
 " yankring's history
 let g:yankring_paste_check_default_buffer = 1
 
+" FLAKE8
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:flake8_cmd = '/usr/local/share/python/flake8'
+let g:flake8_ignore = 'W391,E128,E124,E125,E126'
+
 " SYNTASTIC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " use signs to indicate lines with errors
@@ -757,6 +792,12 @@ let g:syntastic_quiet_warnings = 0
 " ignore djangohtml
 let g:syntastic_disabled_filetypes = ['htmldjango', 'txt', 'text', 'tumblr', 'css', 'html5']
 
+let g:syntastic_auto_jump = 1
+
+let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
+
+let g:syntastic_python_checkers = ['flake8']
+
 " ARGUMENT REWRAP
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <silent> <leader>ar :call argumentrewrap#RewrapArguments()<CR>
@@ -771,6 +812,9 @@ function! s:ToggleScratch()
     endif
 endfunction
 nmap <leader><tab> :call <SID>ToggleScratch()<CR>
+
+" JEDI
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

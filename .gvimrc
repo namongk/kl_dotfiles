@@ -9,10 +9,11 @@ set columns=160
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI COLORING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set gfn=Anonymous\ Pro:h12
+set gfn=Source\ Code\ Pro:h12
 
-set background=dark
-colorscheme xoria256
+set background=light
+" colorscheme gruvbox
+colorscheme hemisu
 
 "Invisible character colors
 highlight NonText guifg=#4a4a59
@@ -36,8 +37,8 @@ set guioptions+=c
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " CURSOR
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-hi Cursor guifg=gainsboro guibg=#ff00ff
-hi iCursor guifg=#000000 guibg=#00ffff
+" hi Cursor guifg=gainsboro guibg=#ff00ff
+hi iCursor guifg=#000000 guibg=#ff0000
 set guicursor=n-v-c:block-Cursor
 set guicursor+=i-ci:ver10-iCursor-blinkwait300-blinkon200-blinkoff150
 set guicursor+=n-v-c:blinkon0-Cursor
@@ -46,14 +47,22 @@ set guicursor+=n-v-c:blinkon0-Cursor
 " MACVIM SETTINGS
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if has("gui_macvim")
-  set transp=5
-  set formatoptions-=tc
-  let macvim_hig_shift_movement = 1
+    " set transp=2
+    set formatoptions-=tc
+    let macvim_hig_shift_movement = 1
+    set macmeta
+    macmenu File.Print key=<Nop>
+    nmap <D-p> <C-p>
 endif
 
 " Automatically enter fullscreen
-" if has("gui_running")
-"     set fuoptions+=maxvert,maxhorz
-"     au GUIEnter * set fullscreen
-" endif
+if has("gui_running")
+    set fuoptions+=maxvert,maxhorz
+    au GUIEnter * set fullscreen
+endif
 
+" Don't move around in Insert mode
+inoremap <Left> <Esc><Right><Left>
+inoremap <Right> <Esc><Right><Right>
+inoremap <Up> <Esc><Up>
+inoremap <Down> <Esc><Down>
