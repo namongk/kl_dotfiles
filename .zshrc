@@ -45,6 +45,8 @@ export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
 export ARCH_FLAGS="-arch i386 -arch x86_64"
 
+export GPGKEY=5362EDD5
+
 any() {
     emulate -L zsh
     unsetopt KSH_ARRAYS

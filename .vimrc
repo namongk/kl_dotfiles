@@ -37,7 +37,8 @@ Bundle 'xptemplate'
 Bundle 'terryma/vim-multiple-cursors'
 Bundle 'rizzatti/funcoo.vim'
 Bundle 'rizzatti/dash.vim'
-Bundle 'davidhalter/jedi-vim'
+Bundle 'Python-mode-klen'
+Bundle 'wakatime/vim-wakatime'
 
 set cpoptions=aABceFsmq
 "set autochdir
@@ -383,6 +384,12 @@ if has("autocmd")
         autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
         autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
         autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+
+        " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     endif
 
     " Python, CSS, XML, and HTML file shoulds be folded based on indent
@@ -480,11 +487,6 @@ vnoremap <silent> in" :<C-U>normal! f"vi"<cr>
 onoremap <silent> in" :<C-U>normal! f"vi"<cr>
 vnoremap <silent> an" :<C-U>normal! f"va"<cr>
 onoremap <silent> an" :<C-U>normal! f"va"<cr>
-
-" Omnicompletion keymappings
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<Down>" : ""<CR>'
-inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<Down>" : ""<CR>'
 
 " CD to directory of current file
 map <Leader>cd :cd %:p:h<CR>
@@ -626,11 +628,6 @@ let g:yankring_replace_n_pkey = '<m-p>'
 " Butane
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <leader>bd :Bclose<CR>      " Close the buffer.
-noremap <leader>bl :ls<CR>          " List buffers.
-noremap <leader>bn :bn<CR>          " Next buffer.
-noremap <leader>bp :bp<CR>          " Previous buffer.
-noremap <leader>bt :b#<CR>          " Toggle to most recently used buffer.
-noremap <leader>bx :Bclose!<CR>     " Close the buffer & discard changes.
 
 " Buffergator
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -813,8 +810,10 @@ function! s:ToggleScratch()
 endfunction
 nmap <leader><tab> :call <SID>ToggleScratch()<CR>
 
-" JEDI
+" PyMode
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pymode_lint = 0
+let g:pymode_breakpoint_key = '<leader>e'
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""

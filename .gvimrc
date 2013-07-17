@@ -56,10 +56,10 @@ if has("gui_macvim")
 endif
 
 " Automatically enter fullscreen
-if has("gui_running")
-    set fuoptions+=maxvert,maxhorz
-    au GUIEnter * set fullscreen
-endif
+" if has("gui_running")
+"     set fuoptions+=maxvert,maxhorz
+"     au GUIEnter * set fullscreen
+" endif
 
 " Don't move around in Insert mode
 inoremap <Left> <Esc><Right><Left>
