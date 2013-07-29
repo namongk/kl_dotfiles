@@ -3,8 +3,8 @@
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set nocompatible
 filetype off
-" call pathogen#runtime_append_all_bundles()
-" call pathogen#helptags()
+filetype plugin indent off
+set runtimepath+=$GOROOT/misc/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
@@ -19,26 +19,36 @@ Bundle 'mjbrownie/html-textobjects'
 Bundle 'scrooloose/nerdtree'
 Bundle 'tpope/vim-repeat'
 Bundle 'lucapette/vim-textobj-underscore'
-Bundle 'jakobwesthoff/argumentrewrap'
 Bundle 'ack.vim'
 Bundle 'Buffergator'
 Bundle 'delete-surround-html'
 Bundle 'Soares/butane.vim'
 Bundle 'ctrlp.vim'
-Bundle 'commentary.vim'
-Bundle 'pythoncomplete'
+Bundle 'tpope/vim-commentary'
+"Bundle 'pythoncomplete'
 Bundle 'Gundo'
 Bundle 'vim-flake8'
-Bundle 'ZenCoding.vim'
+"Bundle 'ZenCoding.vim'
 Bundle 'vim-coffee-script'
 Bundle 'less.vim'
 Bundle 'airblade/vim-gitgutter'
-Bundle 'xptemplate'
-Bundle 'terryma/vim-multiple-cursors'
-Bundle 'rizzatti/funcoo.vim'
-Bundle 'rizzatti/dash.vim'
+"Bundle 'xptemplate'
+"Bundle 'terryma/vim-multiple-cursors'
+"Bundle 'rizzatti/funcoo.vim'
+"Bundle 'rizzatti/dash.vim'
 Bundle 'Python-mode-klen'
 Bundle 'wakatime/vim-wakatime'
+Bundle 'bling/vim-airline'
+Bundle 'SuperTab'
+Bundle 'davidhalter/jedi-vim'
+Bundle 'bling/vim-bufferline'
+Bundle 'sessionman.vim'
+Bundle 'jmcantrell/vim-virtualenv'
+Bundle 'fugitive.vim'
+Bundle 'Tagbar'
+Bundle 'jnwhiteh/vim-golang'
+Bundle 'xolox/vim-misc'
+Bundle 'easytags.vim'
 
 set cpoptions=aABceFsmq
 "set autochdir
@@ -155,7 +165,7 @@ set showtabline=1
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 syntax on
 set t_Co=256
-set background=light
+set background=dark
 colorscheme hemisu
 hi NonText ctermfg=59 guifg=gray
 hi SpecialKey ctermfg=59
@@ -309,6 +319,7 @@ set diffopt=filler,iwhite
 nnoremap / /\v
 vnoremap / /\v
 set gdefault
+set tags=~/.vimtags
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " COMMAND-LINE
@@ -397,16 +408,6 @@ if has("autocmd")
 
     " CSS and Sass files should see - as part of a keyword
     au! BufRead,BufNewFile *.sass,*.scss setlocal filetype=sass
-
-    " PHP
-    augroup php
-        autocmd!
-        autocmd FileType php let php_sql_query=1
-        autocmd FileType php let php_htmlInString=1
-        autocmd FileType php let php_noShortTags=1
-        autocmd FileType php let php_folding=1
-        autocmd FileType php setlocal omnifunc=phpcomplete#CompletePHP
-    augroup END
 
     " JS
     augroup js
@@ -769,7 +770,7 @@ let g:yankring_paste_check_default_buffer = 1
 " FLAKE8
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:flake8_cmd = '/usr/local/share/python/flake8'
-let g:flake8_ignore = 'W391,E128,E124,E125,E126'
+" let g:flake8_ignore = 'W391,E128,E124,E125,E126'
 
 " SYNTASTIC
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -814,7 +815,33 @@ nmap <leader><tab> :call <SID>ToggleScratch()<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:pymode_lint = 0
 let g:pymode_breakpoint_key = '<leader>e'
+let g:pymode_rope = 0
 
+" Airline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline_powerline_fonts = 1
+let g:airline_theme = 'light'
+
+" SuperTab
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:SuperTabDefaultCompletionType = '<c-n>'
+
+" Bufferline
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:bufferline_echo=0
+let g:bufferline_fname_mod = ':.'
+set statusline=%{bufferline#generate_string()}
+
+" Jedi
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:jedi#get_definition_command = '<leader>def'
+
+" TagBar
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap <F2> :TagbarToggle<CR>
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_left = 1 " make tagbar open on the left
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " FUNCTIONS

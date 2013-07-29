@@ -39,7 +39,7 @@ eval "$(hub alias -s)"
 
 export EDITOR="vim"
 export WORKON_HOME=$HOME/.virtualenvs
-source /usr/local/share/python/virtualenvwrapper.sh
+# source /usr/local/share/python/virtualenvwrapper.sh
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
@@ -59,4 +59,5 @@ any() {
 }
 
 source /usr/local/opt/autoenv/activate.sh
+source /usr/local/share/zsh/site-functions
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator

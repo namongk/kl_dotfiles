@@ -9,10 +9,9 @@ set columns=160
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " GUI COLORING
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set gfn=Source\ Code\ Pro:h12
+set gfn=Source\ Code\ Pro\ for\ Powerline:h12
 
 set background=light
-" colorscheme gruvbox
 colorscheme hemisu
 
 "Invisible character colors
