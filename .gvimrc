@@ -11,8 +11,9 @@ set columns=160
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set gfn=Source\ Code\ Pro\ for\ Powerline:h12
 
+let g:airline_theme='light'
 set background=light
-colorscheme hemisu
+colorscheme pencil
 
 "Invisible character colors
 highlight NonText guifg=#4a4a59

@@ -1,16 +1,30 @@
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COMMON
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim:fdm=marker
+
+" COMMON {{{
 set nocompatible
 filetype off
 filetype plugin indent off
+
+set cpoptions=aABceFsmq
+set autochdir
+set nostartofline " don't jump to the first character when paging
+set title
+set backspace=indent,eol,start " allow backspacing over everything in insert mode
+set ttyfast
+
+let mapleader = ','
+let g:mapleader = ','
+let localleader = '\'
+let g:localleader = '\'
+let leader = ','
+let g:leader = ','
+
 set runtimepath+=$GOROOT/misc/vim
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BUNDLES
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BUNDLES {{{
 Bundle 'gmarik/vundle'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-surround'
@@ -25,20 +39,14 @@ Bundle 'delete-surround-html'
 Bundle 'Soares/butane.vim'
 Bundle 'ctrlp.vim'
 Bundle 'tpope/vim-commentary'
-"Bundle 'pythoncomplete'
 Bundle 'Gundo'
 Bundle 'vim-flake8'
-"Bundle 'ZenCoding.vim'
 Bundle 'vim-coffee-script'
 Bundle 'less.vim'
 Bundle 'airblade/vim-gitgutter'
-"Bundle 'xptemplate'
-"Bundle 'terryma/vim-multiple-cursors'
-"Bundle 'rizzatti/funcoo.vim'
-"Bundle 'rizzatti/dash.vim'
+Bundle 'terryma/vim-multiple-cursors'
 Bundle 'Python-mode-klen'
 Bundle 'wakatime/vim-wakatime'
-Bundle 'bling/vim-airline'
 Bundle 'SuperTab'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'bling/vim-bufferline'
@@ -49,23 +57,19 @@ Bundle 'Tagbar'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'xolox/vim-misc'
 Bundle 'easytags.vim'
+Bundle 'bling/vim-airline'
+Bundle 'Rykka/riv.vim'
+Bundle 'mattn/emmet-vim'
+Bundle 'mattboehm/vim-unstack'
+Bundle 'mattboehm/vim-accordion'
+Bundle 'kshenoy/vim-signature'
+Bundle 'unite.vim'
+Bundle 'Shougo/vimfiler.vim'
+Bundle 'myhere/vim-nodejs-complete'
+Bundle 'reedes/vim-colors-pencil'
+" }}}
 
-set cpoptions=aABceFsmq
-"set autochdir
-set nostartofline " don't jump to the first character when paging
-set title
-set backspace=indent,eol,start " allow backspacing over everything in insert mode
-set ttyfast
-let mapleader = ','
-let g:mapleader = ','
-let localleader = '\'
-let g:localleader = '\'
-let leader = ','
-let g:leader = ','
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" DISPLAY
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" DISPLAY {{{
 set ruler
 set number
 set showcmd
@@ -75,14 +79,11 @@ set winminwidth=0
 set winheight=10
 set display+=lastline
 set textwidth=0
-"set columns=90
 set wrapmargin=10
 set numberwidth=5
-"set relativenumber
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BEHAVIOR
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BEHAVIOR {{{
 set autoread
 set noautowrite
 set visualbell
@@ -105,10 +106,9 @@ set smartcase
 
 " Saving sessions
 set sessionoptions=buffers,folds,tabpages
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" TEXT EDITING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TEXT EDITING {{{
 set imd
 set wildmenu
 set wildmode=list:longest,full
@@ -135,21 +135,22 @@ set encoding=utf-8 fileencodings=.
 set showfulltag
 set completeopt=longest,menuone,preview
 set isk-=_ " Don't consider underscores to be word characters
+set ts=4
+set sts=4
+set sw=4
+set expandtab
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FOLDS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"set foldmethod=indent
+" FOLDS {{{
 set foldmethod=manual
 set foldenable
 set foldopen=block,hor,mark,percent,quickfix,tag
 set foldminlines=2
 set fillchars+=fold:\
 set foldcolumn=2
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BUFFERS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BUFFERS {{{
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 set bufhidden=hide
 set hidden " you can change buffers without saving
@@ -159,14 +160,13 @@ set splitbelow
 set scrolloff=2
 set sidescrolloff=2
 set showtabline=1
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COLORS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COLORS {{{
 syntax on
 set t_Co=256
 set background=dark
-colorscheme hemisu
+colorscheme pencil
 hi NonText ctermfg=59 guifg=gray
 hi SpecialKey ctermfg=59
 
@@ -180,136 +180,32 @@ autocmd BufWinLeave * call clearmatches()
 
 " full Python syntax highlighting
 let python_highlight_all=1
-let g:pyflakes_use_quickfix=0
+let g:pyflakes_use_quickfix=1
 
 " use brief mode for Javascript indenter
 let g:SimpleJsIndenter_BriefMode = 1
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" STATUS LINE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set laststatus=2
+" }}}
 
-set statusline=%-.50F " Full path to file, 50 characters max
-set statusline+=\ (%n) " buffer number
-set statusline+=\ %([%M%R%H%W]\ %) " Modified, Read-only, Help, and Preview flags
-set statusline+=\ %y " Filetype
-set statusline+=\ %#error# " switch to error color
-set statusline+=%{StatuslineTabWarning()} " show warning about mixed tabs or bad &et
-set statusline+=%{StatuslineTrailingSpaceWarning()} " show warning about trailing whitespace
-set statusline+=%{StatuslineLongLineWarning()} " show warning about long lines
-set statusline+=%* " back to normal color
-set statusline+=\ %#warningmsg# " switch to warningmsg color
-set statusline+=%{SyntasticStatuslineFlag()} " show Syntastic flag
-set statusline+=%* " back to normal color
-set statusline+=\ %= " Right-align and start truncation
-set statusline+=\ [%04l/%04L\ %03c] " Show current line number, total lines, current column
-set statusline+=\ %p%% " Percentage through file in lines
+" STATUS LINE {{{
+set laststatus=2
 
 " recalculate the warning flags when idle and after writing
 autocmd cursorhold,bufwritepost * unlet! b:statusline_tab_warning
 autocmd cursorhold,bufwritepost * unlet! b:statusline_trailing_space_warning
 autocmd cursorhold,bufwritepost * unlet! b:statusline_long_line_warning
+" }}}
 
-" return '[mixed]' if spaces and tabs are used to indent
-" return an empty string if everything is fine
-function! StatuslineTabWarning()
-    if !exists("b:statusline_tab_warning")
-        let tabs = search('^\t', 'nw') != 0
-        let spaces = search('^ ', 'nw') != 0
-
-        if tabs && spaces
-            let b:statusline_tab_warning = '[mixed]'
-        else
-            let b:statusline_tab_warning = ''
-        endif
-    endif
-    return b:statusline_tab_warning
-endfunction
-
-" return '[\s]' if trailing white space is detected
-" return '' otherwise
-function! StatuslineTrailingSpaceWarning()
-    if !exists("b:statusline_trailing_space_warning")
-        let tabs = search('\t\+$', 'nw') != 0
-        let spaces = search('\s\+$', 'nw') != 0
-        if tabs || spaces
-            let b:statusline_trailing_spaces_warning = '[\s]'
-        else
-            let b:statusline_trailing_spaces_warning = ''
-        endif
-    endif
-    return b:statusline_trailing_spaces_warning
-endfunction
-
-" return a warning for 'long lines' where 'long' is either &textwidth
-" or 80 (if no &textwidth is set)
-"
-" return '' if no long lines
-" return '[#x, my, $z]' if long lines are found, where 'x' is the number
-" of long lines, 'y' is the median length of the long lines, and 'z' is
-" the length of the longest line
-function! StatuslineLongLineWarning()
-    if !exists("b:statusline_long_line_warning")
-        let long_line_lens = s:LongLines()
-
-        if len(long_line_lens) > 0
-            let b:statusline_long_line_warning = "[" .
-                \ '#' . len(long_line_lens) . ", " .
-                \ 'm' . s:Median(long_line_lens) . ", " .
-                \ '$' . max(long_line_lens) . "]"
-        else
-            let b:statusline_long_line_warning = ''
-        endif
-    endif
-    return b:statusline_long_line_warning
-endfunction
-
-" return a list containing the lengths of the long lines in this buffer
-function! s:LongLines()
-    let threshold = (&tw ? &tw : 80)
-    let spaces = repeat(" ", &ts)
-
-    let long_line_lens = []
-
-    let i = 1
-    while i <= line("$")
-        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
-        if len > threshold
-            call add(long_line_lens, len)
-        endif
-        let i += 1
-    endwhile
-
-    return long_line_lens
-endfunction
-
-" find the median of the given array of numbers
-function! s:Median(nums)
-    let nums = sort(a:nums)
-    let l = len(nums)
-
-    if l % 2 == 1
-        let i = (l-1) / 2
-        return nums[i]
-    else
-        return (nums[l/2] + nums[(l/2)-1]) / 2
-    endif
-endfunction
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" BACKUPS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BACKUPS {{{
 set nowb
 set noswapfile
 set nobackup
 set viminfo=%100,'100,/100,h,\"500,:100,n~/.viminfo
 set history=500
 set updatecount=100
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SEARCH
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SEARCH {{{
 set incsearch   " do incremental searching
 set ignorecase
 set infercase
@@ -319,16 +215,14 @@ set diffopt=filler,iwhite
 nnoremap / /\v
 vnoremap / /\v
 set gdefault
-set tags=~/.vimtags
+set tags=/Users/kennethlove/.vimtags
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" COMMAND-LINE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" COMMAND-LINE {{{
 cno $q <C-\>eDeleteTilSlash()<CR>
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" SETTINGS PER FILETYPE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SETTINGS PER FILETYPE {{{
 filetype plugin indent on
 if has("autocmd")
     " Syntax of these languages is fussy over tabs Vs spaces
@@ -336,7 +230,7 @@ if has("autocmd")
     autocmd FileType yaml setlocal ts=4 sts=4 sw=4 expandtab
 
     " Customisations based on house-style (arbitrary)
-    autocmd FileType html,xhtml,xml,htmldjango.html,html,css,javascript,python setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType * setlocal ts=4 sts=4 sw=4 expandtab
 
     autocmd BufWritePost *.py call Flake8()
 
@@ -381,7 +275,7 @@ if has("autocmd")
 
     autocmd BufEnter * :syntax sync fromstart
 
-    autocmd BufRead *.html setlocal filetype=htmldjango.html
+    autocmd BufRead *.html setlocal filetype=htmldjango
     autocmd BufRead *.py setlocal smartindent cinwords=if,else,elif,for,while,try,except,finally,def,class
 
     " mapping to mark HTML5 files
@@ -390,17 +284,17 @@ if has("autocmd")
     if version >= 700
         autocmd FileType python setlocal omnifunc=pythoncomplete#Complete colorcolumn=80
         autocmd FileType css,sass setlocal omnifunc=csscomplete#CompleteCSS
-        autocmd FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType html,htmldjango setlocal omnifunc=htmlcomplete#CompleteTags
         autocmd FileType ruby,eruby setlocal omnifunc=rubycomplete#Complete
         autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
         autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
         autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
-        " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-        " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-        " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-        " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+        autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+        autocmd FileType markdown setlocal omnifunc=htmlcomplete#CompleteTags
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+        autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+        autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
     endif
 
     " Python, CSS, XML, and HTML file shoulds be folded based on indent
@@ -426,10 +320,9 @@ if has("autocmd")
 
 endif
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" KEY MAPPINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" KEY MAPPINGS {{{
 " Turn off print, I never use it.
 map <D-p> <Nop>
 map! <D-p> <Nop>
@@ -615,28 +508,23 @@ inoremap jj <ESC>
 
 " Launch Ack quicker
 nnoremap <leader>a :Ack
+" }}}
 
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" PLUGIN SETTINGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" YANKRING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" YANKRING {{{
 let g:ycm_key_detailed_diagnostics = ''
 let g:yankring_replace_n_pkey = '<m-p>'
+" }}}
 
-" Butane
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BUTANE {{{
 noremap <leader>bd :Bclose<CR>      " Close the buffer.
+" }}}
 
-" Buffergator
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" BUFFERGATOR {{{
 let g:buffergator_viewport_split_policy="T"
 let g:buffergator_split_size=10
+" }}}
 
-" CtrlP
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" CtrlP {{{
 let g:ctrlp_map = "<c-p>"
 let g:ctrlp_cmd = "CtrlPMixed"
 let g:ctrlp_custom_ignore = {
@@ -646,26 +534,26 @@ let g:ctrlp_custom_ignore = {
 let g:ctrlp_working_path_mode = "ra"
 let g:ctrlp_open_new_file = "r"
 let g:ctrlp_open_multiple_files = "i"
+" }}}
 
-" POWERLINE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" POWERLINE {{{
 let g:Powerline_symbols = "fancy"
+" }}}
 
-" GUNDO
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" GUNDO {{{
 nnoremap <F4> :GundoToggle<CR>
+" }}}
 
-" PYDICTION
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PYDICTION {{{
 let g:pydiction_location = "~/.vim/bundle/pydiction/complete-dict"
+" }}}
 
-" MATCHIT
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" MATCHIT {{{
 runtime plugins/matchit.vim
 let b:match_ignorecase = 1
+" }}}
 
-" NETRW
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NETRW {{{
 " Default to tree view
 let g:netrw_lifestyle = 3
 " hide common hidden files
@@ -674,14 +562,14 @@ let g:netrw_list_hide = '.*\.py[co]$,\.git$,\.swp$'
 let g:netrw_http_cmd = "wget -q -O" " or 'curl -Ls -o'
 let g:netrw_winsize = 10
 let g:netrw_alto = 1
+" }}}
 
-" EASYTAGS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" EASYTAGS {{{
 let g:easytags_resolve_links = 1
 let g:easytags_cmd = '/usr/local/bin/ctags'
+" }}}
 
-" TAGLIST
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TAGLIST {{{
 let Tlist_Use_Right_Window = 1
 let Tlist_Auto_Open = 0
 let Tlist_Enable_Fold_Column = 0
@@ -697,17 +585,15 @@ let Tlist_Close_On_Select = 1
 let Tlist_Auto_Update = 1
 let Tlist_Show_One_File = 1
 let g:tlist_javascript_settings = 'js;javascript;s:string;a:array;o:object;f:function'
+" }}}
 
-"nnoremap <silent> <Leader>T :TlistToggle<CR>
-
-" RAGTAG
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" RAGTAG {{{
 inoremap <M-o> <Esc>o
 inoremap <C-j> <Down>
 let g:ragtag_global_maps = 1
+" }}}
 
-" NERD_TREE
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERD_TREE {{{
 nmap <Leader>d :NERDTreeFind<CR>
 let g:NERDChristmasTree = 1
 let g:NERDTreeQuitOnOpen = 1
@@ -721,10 +607,20 @@ let g:NERDTreeShowBookmarks = 1
 let g:NERDTreeSortOrder = ['\/$', '*']
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeMinimalUI = 1
-" let g:NERDTreeDirArrows = 1
+" }}}
 
-" YANKRING
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" VimFiler {{{
+let g:vimfiler_enable_auto_cd = 1
+let g:loaded_netrwPlugin = 1
+let g:vimfiler_as_default_explorer = 1
+let g:vimfiler_tree_leaf_icon = ' '
+let g:vimfiler_tree_opened_icon = '▾'
+let g:vimfiler_tree_closed_icon = '▸'
+let g:vimfiler_file_icon = '-'
+let g:vimfiler_marked_file_icon = '*'
+" }}}
+
+" YANKRING {{{
 nnoremap <silent> <F3> :YRShow<CR>
 inoremap <silent> <F3> <ESC>:YRShow<CR>
 "
@@ -766,14 +662,14 @@ let g:yankring_clipboard_monitor = 1
 " yankring, use the default register value rather than the top item in
 " yankring's history
 let g:yankring_paste_check_default_buffer = 1
+" }}}
 
-" FLAKE8
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:flake8_cmd = '/usr/local/share/python/flake8'
-" let g:flake8_ignore = 'W391,E128,E124,E125,E126'
+" FLAKE8 {{{
+let g:flake8_cmd = '/usr/local/bin/flake8'
+let g:flake8_cmd = '/usr/local/bin/pyflakes'
+" }}}
 
-" SYNTASTIC
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SYNTASTIC {{{
 " use signs to indicate lines with errors
 " only if signs are available
 if has('signs')
@@ -785,67 +681,66 @@ endif
 let g:syntastic_auto_loc_list = 1
 
 " always show warnings
-let g:syntastic_quiet_warnings = 0
+let g:syntastic_quiet_messages = {'level': 'warnings'}
 
 " ignore djangohtml
-let g:syntastic_disabled_filetypes = ['htmldjango', 'txt', 'text', 'tumblr', 'css', 'html5']
+let g:syntastic_disabled_filetypes = ['htmldjango', 'txt', 'text', 'tumblr', 'css', 'html5', 'htmldjango.html']
 
 let g:syntastic_auto_jump = 1
 
 let g:syntastic_stl_format = '[%E{Err: %fe #%e}%B{, }%W{Warn: %fw #%w}]'
 
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['pyflakes']
+" }}}
 
-" ARGUMENT REWRAP
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ARGUMENT REWRAP {{{
 nnoremap <silent> <leader>ar :call argumentrewrap#RewrapArguments()<CR>
+" }}}
 
-" SCRATCH BUFFER
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! s:ToggleScratch()
-    if expand('%') == g:ScratchBufferName
-        quit
-    else
-        Sscratch
-    endif
-endfunction
-nmap <leader><tab> :call <SID>ToggleScratch()<CR>
-
-" PyMode
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" PyMode {{{
 let g:pymode_lint = 0
 let g:pymode_breakpoint_key = '<leader>e'
 let g:pymode_rope = 0
+" }}}
 
-" Airline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Airline {{{
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'light'
+let g:airline_theme = 'jellybeans'
+let g:airline_linecolumn_prefix = '¶ '
+let g:airline_enable_branch = 1
+let g:airline_enable_syntastic = 0
+let g:airline_detect_paste = 1
+let g:airline_detect_modified = 1
+let g:airline_section_b = '%{fugitive#statusline()}'
+let g:airline#extensions#whitespace#enabled = 1
+let g:airline#extensions#whitespace#show_message = 1
+let g:airline#extensions#bufferline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#syntastic#enabled = 0
+let g:airline#extensions#hunks#enabled = 0
+" }}}
 
-" SuperTab
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" SuperTab {{{
 let g:SuperTabDefaultCompletionType = '<c-n>'
+" }}}
 
-" Bufferline
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Bufferline {{{
 let g:bufferline_echo=0
 let g:bufferline_fname_mod = ':.'
-set statusline=%{bufferline#generate_string()}
+" }}}
 
-" Jedi
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Jedi {{{
 let g:jedi#get_definition_command = '<leader>def'
+" }}}
 
-" TagBar
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" TagBar {{{
 nmap <F2> :TagbarToggle<CR>
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_left = 1 " make tagbar open on the left
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" FUNCTIONS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FUNCTIONS {{{
 
 " HIGHLIGHT LONG LINES
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -964,24 +859,98 @@ func! CurDir()
     let curdir = substitute(getcwd(), '/Users/kennethlove', "~/", "g")
     return curdir
 endfunc
+"
+" return '[mixed]' if spaces and tabs are used to indent
+" return an empty string if everything is fine
+function! StatuslineTabWarning()
+    if !exists("b:statusline_tab_warning")
+        let tabs = search('^\t', 'nw') != 0
+        let spaces = search('^ ', 'nw') != 0
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" MISCELLANEOUS
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" This beauty remembers where you were the last time you edited the file, and returns to the same position.
+        if tabs && spaces
+            let b:statusline_tab_warning = '[mixed]'
+        else
+            let b:statusline_tab_warning = ''
+        endif
+    endif
+    return b:statusline_tab_warning
+endfunction
+
+" return '[\s]' if trailing white space is detected
+" return '' otherwise
+function! StatuslineTrailingSpaceWarning()
+    if !exists("b:statusline_trailing_space_warning")
+        let tabs = search('\t\+$', 'nw') != 0
+        let spaces = search('\s\+$', 'nw') != 0
+        if tabs || spaces
+            let b:statusline_trailing_spaces_warning = '[\s]'
+        else
+            let b:statusline_trailing_spaces_warning = ''
+        endif
+    endif
+    return b:statusline_trailing_spaces_warning
+endfunction
+
+" return a warning for 'long lines' where 'long' is either &textwidth
+" or 80 (if no &textwidth is set)
+"
+" return '' if no long lines
+" return '[#x, my, $z]' if long lines are found, where 'x' is the number
+" of long lines, 'y' is the median length of the long lines, and 'z' is
+" the length of the longest line
+function! StatuslineLongLineWarning()
+    if !exists("b:statusline_long_line_warning")
+        let long_line_lens = s:LongLines()
+
+        if len(long_line_lens) > 0
+            let b:statusline_long_line_warning = "[" .
+                \ '#' . len(long_line_lens) . ", " .
+                \ 'm' . s:Median(long_line_lens) . ", " .
+                \ '$' . max(long_line_lens) . "]"
+        else
+            let b:statusline_long_line_warning = ''
+        endif
+    endif
+    return b:statusline_long_line_warning
+endfunction
+
+" return a list containing the lengths of the long lines in this buffer
+function! s:LongLines()
+    let threshold = (&tw ? &tw : 80)
+    let spaces = repeat(" ", &ts)
+
+    let long_line_lens = []
+
+    let i = 1
+    while i <= line("$")
+        let len = strlen(substitute(getline(i), '\t', spaces, 'g'))
+        if len > threshold
+            call add(long_line_lens, len)
+        endif
+        let i += 1
+    endwhile
+
+    return long_line_lens
+endfunction
+
+" find the median of the given array of numbers
+function! s:Median(nums)
+    let nums = sort(a:nums)
+    let l = len(nums)
+
+    if l % 2 == 1
+        let i = (l-1) / 2
+        return nums[i]
+    else
+        return (nums[l/2] + nums[(l/2)-1]) / 2
+    endif
+endfunction
+" }}}
+
+" MISCELLANEOUS {{{
+" This beauty remembers where you were the last time you edited the file, and 
+" returns to the same position.
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
-
-" Add the virtualenv's site-packages to vim path
-"py << EOF
-"import os.path
-"import sys
-"import vim
-"if os.environ['VIRTUAL_ENV']:
-"    project_base_dir = os.environ['VIRTUAL_ENV']
-"    sys.path.insert(0, project_base_dir)
-"    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"    execfile(activate_this, dict(__file__=activate_this))
-"EOF
 
 nmap <F3> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %H:%M:%S")<CR>
@@ -994,3 +963,4 @@ noremap <leader>yy "*Y
 
 " Preserve indentation while pasting text from the OS X clipboard
 noremap <leader>p :set paste<CR>:put  *<CR>:set nopaste<CR>
+" }}}

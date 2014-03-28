@@ -11,10 +11,10 @@ if [ -d $HOME/.oh-my-zsh ] ; then
     [ -s $HOME/.prompt ] && source $HOME/.prompt
 fi
 
-export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/npm/bin:/usr/local/share/node_modules/.bin:/Users/kennethlove/.oh-my-zsh:/usr/local/opt/ruby/bin:/usr/local/Cellar/ruby/1.9.3-p327/bin:/usr/local/Cellar/ruby/1.9.3-p125/bin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/local/share/npm/bin:/usr/local/share/node_modules/.bin:/Users/kennethlove/.oh-my-zsh:/usr/local/opt/ruby/bin:$PATH"
 export TERM="xterm-256color"
 export NODE_PATH="/usr/local/lib/node_modules:$NODE_PATH"
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
+# export PYTHONPATH="/usr/local/lib/python2.7/site-packages:/usr/local/lib/python3.3/site-packages:$PYTHONPATH"
 
 export CLICOLOR=1
 
@@ -34,18 +34,23 @@ alias pmcs="python manage.py collectstatic --noinput"
 
 alias brack3t="pelican . -o . -s settings.py"
 
+alias bower="noglob bower"
+
 # alias `hub` as `git`
 eval "$(hub alias -s)"
 
 export EDITOR="vim"
 export WORKON_HOME=$HOME/.virtualenvs
-# source /usr/local/share/python/virtualenvwrapper.sh
+source /usr/local/bin/virtualenvwrapper.sh
 export PIP_RESPECT_VIRTUALENV=true
 export PIP_VIRTUALENV_BASE=$WORKON_HOME
+export DISABLE_AUTO_TITLE=true
 
 export ARCH_FLAGS="-arch i386 -arch x86_64"
 
 export GPGKEY=5362EDD5
+
+export DYLD_FALLBACK_LIBRARY_PATH=/Applications/Postgres.app/Contents/MacOS/lib:$DYLD_LIBRARY_PATH
 
 any() {
     emulate -L zsh
@@ -61,3 +66,5 @@ any() {
 source /usr/local/opt/autoenv/activate.sh
 source /usr/local/share/zsh/site-functions
 [[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
+
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
